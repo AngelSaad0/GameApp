@@ -12,7 +12,9 @@ struct MainTabBar: View {
         TabView {
             NavigationView {
                 GamesView()
+
             }
+
             .tabItem {
                 Label("Games ", systemImage: "gamecontroller")
             }
@@ -42,8 +44,12 @@ struct MainTabBar: View {
             .tabItem {
                 Label("Hot", systemImage: "flame.fill")
             }
+
         }
-        .accentColor(.primary)
+        .accentColor(._4_C_55_B_8)
+        
+
+
     }
 }
 

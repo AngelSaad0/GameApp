@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Foundation
-
 
 struct GamesModel: Identifiable , Hashable {
     let id: UUID = .init()
@@ -16,7 +14,6 @@ struct GamesModel: Identifiable , Hashable {
     let image: String
     let url: String
 }
-
 
 enum GamesSectionModel: Identifiable {
     case Winter(model: [GamesModel])
@@ -43,7 +40,6 @@ enum GamesSectionModel: Identifiable {
 
 extension GamesSectionModel: Hashable {
     static func == (lhs: GamesSectionModel, rhs: GamesSectionModel) -> Bool {
-        // Implement equality check based on your requirements
         switch (lhs, rhs) {
         case (.Winter, .Winter),
              (.exclusive, .exclusive),

@@ -11,11 +11,7 @@ import SwiftUI
 
 struct GamesView: View {
 
-    @StateObject private var viewModel: GamesViewModel
-
-    init(viewModel: GamesViewModel = GamesViewModel()) {
-        _viewModel = StateObject(wrappedValue: viewModel)
-    }
+    @StateObject private var viewModel: GamesViewModel = GamesViewModel()
 
     var body: some View {
         NavigationStack{
@@ -25,7 +21,7 @@ struct GamesView: View {
                     NavigationLink {
                         GamesDetailContentView(gameModel: random ?? viewModel.defaulValue)
                     } label: {
-                        Image(random?.image ?? "moneyMovers")
+                        Image(random?.image ?? "")
                             .resizable()
                             .scaledToFill()
                             .frame(width: rect().width,height: rect().height/2)
@@ -45,10 +41,9 @@ struct GamesView: View {
                 ToolbarItem(placement: .navigation) {
                     HStack{
                         Button(action: {}, label: {
-                            Text("Games")
-                                .font(.largeTitle)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.white)
+                            Text("All Games")
+                                .foregroundStyle(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
+                                .font(.largeTitle.bold())
                         })
                         Spacer()
                     }
@@ -58,7 +53,7 @@ struct GamesView: View {
     }
 
 
-    @ViewBuilder
+//    @ViewBuilder
     func listView() -> some View {
         ForEach(viewModel.gamesSection) { section in
             VStack(spacing:15){
@@ -116,8 +111,6 @@ struct GamesView: View {
     }
 
 }
-
-
 
 #Preview {
     GamesView()

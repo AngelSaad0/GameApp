@@ -33,11 +33,11 @@ extension GamesViewModel {
 
     @MainActor
     func getGamesList() async throws {
-        let winter = try await service.getWinterSelection()
-        let exclusive = try await service.getExclusiveGames()
-        let nano = try await service.getNonoGames()
-        let brain = try await service.getBrainTeaser()
-        let hotGames = try await service.getHotGames()
+        let winter =  service.getWinterSelection()
+        let exclusive = service.getExclusiveGames()
+        let nano =  service.getNonoGames()
+        let brain = service.getBrainTeaser()
+        let hotGames =  service.getHotGames()
         let random = [winter,exclusive,nano,brain,hotGames]
         randomGame = random.randomElement() ?? []
         gamesSection.append(.Winter(model: winter))

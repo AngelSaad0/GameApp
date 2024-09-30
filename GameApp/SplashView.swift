@@ -12,10 +12,13 @@ struct SplashView: View {
 
         NavigationView {
             ZStack {
+
                 Color("#4C55B8")
                     .ignoresSafeArea()
+
                 VStack(alignment: .center){
                     Image(.appLogo)
+
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 300,height: 350)
